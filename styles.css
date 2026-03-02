@@ -1,5 +1,5 @@
 /* =============================================================================
-   ОБЩИЕ СТИЛИ - НА ОСНОВЕ DANAYI PLUGIN
+   НУАРНЫЙ БРУТАЛИЗМ - СТИЛИ НА ОСНОВЕ DANAYI PLUGIN
    ============================================================================= */
 
 * {
@@ -8,12 +8,20 @@
     box-sizing: border-box;
 }
 
+/* =============================================================================
+   БАЗОВЫЕ НАСТРОЙКИ
+   ============================================================================= */
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: #dcddde;
+    font-family: 'Special Elite', 'Courier Prime', 'Courier New', monospace;
+    background-color: #000000;
+    color: #c9c9c9;
     line-height: 1.6;
     padding: 20px;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
+    background-attachment: fixed;
 }
 
 /* =============================================================================
@@ -21,12 +29,37 @@ body {
    ============================================================================= */
 
 .danayi-wrapper {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 25px;
-    border: 1px solid #42454a;
-    border-radius: 8px;
-    background-color: #2f3136;
+    padding: 40px;
+    border: 3px solid #333333;
+    border-radius: 0px; /* Угловатые края */
+    background-color: #0a0a0a;
+    position: relative;
+    box-shadow: 
+        0 0 0 1px #1a1a1a,
+        0 0 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
+/* Текстура для контейнера (опционально) */
+.danayi-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/texture-noise.png'); /* Добавьте текстуру шума */
+    background-repeat: repeat;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.danayi-wrapper > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* =============================================================================
@@ -37,41 +70,93 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
-    gap: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #42454a;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #333333;
 }
 
-.danayi-header h3 {
+.noir-title {
     margin: 0;
-    font-size: 1.5em;
-    color: #fff;
+    font-size: 2.5em;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .danayi-controls {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
 .danayi-btn {
-    padding: 8px 16px;
+    padding: 12px 24px;
     cursor: pointer;
     text-decoration: none;
-    background-color: #40444b;
-    color: #dcddde;
-    border: 1px solid #42454a;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    font-size: 0.9em;
+    background-color: #1a1a1a;
+    color: #c9c9c9;
+    border: 2px solid #333333;
+    border-radius: 0px; /* Угловатые края */
+    transition: all 0.3s ease;
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.danayi-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.danayi-btn:hover::before {
+    left: 100%;
 }
 
 .danayi-btn:hover {
-    background-color: #5865f2;
-    color: #fff;
-    border-color: #5865f2;
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* =============================================================================
+   ДЕКОРАТИВНЫЕ ЛИНИИ
+   ============================================================================= */
+
+.noir-divider {
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #333333 20%, 
+        #333333 80%, 
+        transparent 100%);
+    margin: 40px 0;
+    position: relative;
+}
+
+.noir-divider::after {
+    content: '■';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0a0a0a;
+    padding: 0 15px;
+    color: #333333;
+    font-size: 0.8em;
 }
 
 /* =============================================================================
@@ -79,13 +164,17 @@ body {
    ============================================================================= */
 
 .danayi-section {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
-.danayi-section h2 {
-    color: #fff;
-    margin-bottom: 15px;
-    font-size: 1.3em;
+.section-title {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-left: 4px solid #ffffff;
+    padding-left: 15px;
 }
 
 /* =============================================================================
@@ -93,43 +182,80 @@ body {
    ============================================================================= */
 
 .danayi-card {
-    padding: 20px;
-    border: 1px solid #42454a;
-    border-radius: 6px;
-    background-color: #40444b;
+    padding: 30px;
+    border: 2px solid #333333;
+    border-radius: 0px; /* Угловатые края */
+    background-color: #111111;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     position: relative;
-    min-height: 60px;
+    min-height: 80px;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Текстура карточки */
+.card-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/card-texture.jpg'); /* Добавьте текстуру */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.4s ease;
+}
+
+.danayi-card:hover .card-texture {
+    opacity: 0.12;
 }
 
 .danayi-card:hover {
-    border-color: #5865f2;
-    background-color: #4f545c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: #666666;
+    background-color: #1a1a1a;
+    box-shadow: 
+        0 0 30px rgba(0, 0, 0, 0.6),
+        inset 0 0 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
 }
 
 .danayi-card-side {
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .danayi-content {
     font-size: 1em;
-    line-height: 1.6;
-    color: #dcddde;
+    line-height: 1.8;
+    color: #b9b9b9;
+    position: relative;
+    z-index: 1;
 }
 
 .danayi-content p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.danayi-content h4 {
-    color: #fff;
-    margin-bottom: 8px;
+/* =============================================================================
+   ШРИФТ ПЕЧАТНОЙ МАШИНКИ
+   ============================================================================= */
+
+.typewriter-text {
+    font-family: 'Special Elite', 'Courier Prime', monospace;
+    letter-spacing: 0.05em;
+    color: #a8a8a8;
+}
+
+.typewriter-text::first-letter {
+    font-size: 1.2em;
+    color: #ffffff;
 }
 
 /* =============================================================================
@@ -146,6 +272,18 @@ body {
 
 .danayi-card.flipped .side-2 {
     display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* =============================================================================
@@ -155,28 +293,42 @@ body {
 .social-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 12px;
+    margin-top: 20px;
 }
 
 .social-btn {
-    padding: 10px 20px;
-    background-color: #40444b;
-    color: #dcddde;
+    padding: 14px 28px;
+    background-color: #1a1a1a;
+    color: #c9c9c9;
     text-decoration: none;
-    border: 1px solid #42454a;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    border: 2px solid #333333;
+    border-radius: 0px;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    font-size: 0.85em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: inherit;
+}
+
+.btn-icon {
+    font-size: 1.2em;
+    color: #666666;
+    transition: color 0.3s ease;
 }
 
 .social-btn:hover {
-    background-color: #5865f2;
-    color: #fff;
-    border-color: #5865f2;
-    transform: translateY(-2px);
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+.social-btn:hover .btn-icon {
+    color: #000000;
 }
 
 /* =============================================================================
@@ -185,8 +337,8 @@ body {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .gallery-item {
@@ -194,27 +346,85 @@ body {
     align-items: stretch;
     padding: 0;
     overflow: hidden;
+    min-height: 400px;
+}
+
+.gallery-image-wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-bottom: 2px solid #333333;
+    position: relative;
 }
 
 .gallery-image {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
-    border-bottom: 1px solid #42454a;
+    filter: grayscale(80%) contrast(120%);
+    transition: all 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    filter: grayscale(0%) contrast(100%);
+    transform: scale(1.05);
 }
 
 .gallery-item .danayi-content {
-    padding: 15px;
+    padding: 20px;
 }
 
-.gallery-item h4 {
-    margin-bottom: 5px;
+.gallery-title {
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.gallery-item p {
+.gallery-desc {
     font-size: 0.9em;
-    color: #b9bbbe;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.gallery-meta {
+    font-size: 0.8em;
+    color: #555555;
     margin-bottom: 0;
+    letter-spacing: 0.05em;
+}
+
+/* =============================================================================
+   КНОПКА УДАЛЕНИЯ (для галереи можно скрыть)
+   ============================================================================= */
+
+.danayi-btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 12px;
+    font-size: 0.75em;
+    background-color: #2a0a0a;
+    color: #ff6b6b;
+    border: 1px solid #4a1a1a;
+    border-radius: 0px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: inherit;
+    z-index: 10;
+}
+
+.danayi-card:hover .danayi-btn-delete {
+    opacity: 1;
+}
+
+.danayi-btn-delete:hover {
+    background-color: #ff6b6b;
+    color: #000000;
 }
 
 /* =============================================================================
@@ -222,22 +432,50 @@ body {
    ============================================================================= */
 
 .danayi-footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #42454a;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 2px solid #333333;
     text-align: center;
-    color: #72767d;
-    font-size: 0.9em;
+    color: #555555;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+}
+
+.footer-text {
+    margin-bottom: 10px;
+}
+
+.footer-text:last-child {
+    margin-bottom: 0;
 }
 
 /* =============================================================================
    АДАПТИВНОСТЬ
    ============================================================================= */
 
+@media (max-width: 1024px) {
+    .danayi-wrapper {
+        padding: 30px;
+    }
+    
+    .noir-title {
+        font-size: 2em;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .danayi-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+    
+    .noir-title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
     }
     
     .danayi-controls {
@@ -260,11 +498,11 @@ body {
     }
     
     .danayi-wrapper {
-        padding: 15px;
+        padding: 20px;
     }
     
-    .danayi-header h3 {
-        font-size: 1.2em;
+    .noir-title {
+        font-size: 1.5em;
     }
     
     .gallery-grid {
@@ -279,6 +517,10 @@ body {
         width: 100%;
         justify-content: center;
     }
+    
+    .section-title {
+        font-size: 1.2em;
+    }
 }
 
 /* =============================================================================
@@ -286,41 +528,77 @@ body {
    ============================================================================= */
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #2f3136;
+    background: #0a0a0a;
+    border-left: 1px solid #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #42454a;
-    border-radius: 4px;
+    background-color: #333333;
+    border: 2px solid #0a0a0a;
+    border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #5865f2;
+    background-color: #555555;
 }
 
 /* =============================================================================
-   АНИМАЦИИ
+   ЭФФЕКТЫ
    ============================================================================= */
 
-@keyframes fadeIn {
+/* Эффект печатной машинки при загрузке */
+@keyframes typewriter {
     from {
-        opacity: 0;
-        transform: translateY(20px);
+        width: 0;
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        width: 100%;
     }
 }
 
-.danayi-section {
-    animation: fadeIn 0.5s ease-out;
+/* Виньетка по краям экрана */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);
+    pointer-events: none;
+    z-index: 100;
 }
 
-.danayi-card {
-    animation: fadeIn 0.3s ease-out;
+/* Зернистость плёнки */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 99;
+    opacity: 0.4;
+}
+
+/* =============================================================================
+   УТИЛИТЫ
+   ============================================================================= */
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.letter-spacing {
+    letter-spacing: 0.1em;
 }
