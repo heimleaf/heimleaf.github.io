@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Портфолио</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="danayi-wrapper">
+        
+        <!-- Шапка с именем -->
+        <div class="danayi-header">
+            <h3>👋 Привет, я [Ваше Имя]</h3>
+            <div class="danayi-controls">
+                <a href="#about" class="danayi-btn">Обо мне</a>
+                <a href="#gallery" class="danayi-btn">Галерея</a>
+                <a href="#contact" class="danayi-btn">Контакты</a>
+            </div>
+        </div>
+
+        <!-- Секция: Обо мне -->
+        <div id="about" class="danayi-section">
+            <div class="danayi-card">
+                <div class="danayi-content">
+                    <h2>🎨 Обо мне</h2>
+                    <p>
+                        Добро пожаловать на мой персональный сайт! Я занимаюсь творчеством, 
+                        создаю рисунки и фотографии. Здесь вы можете увидеть мои работы 
+                        и связаться со мной в социальных сетях.
+                    </p>
+                    <p>
+                        📍 Локация: [Ваш Город]<br>
+                        ✉️ Email: [ваш@email.com]<br>
+                        🎯 Специализация: [Ваша специализация]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Секция: Социальные сети -->
+        <div id="contact" class="danayi-section">
+            <div class="danayi-card">
+                <div class="danayi-content">
+                    <h2>🔗 Социальные сети</h2>
+                    <div class="social-links">
+                        <a href="https://telegram.org" target="_blank" class="social-btn">
+                            ✈️ Telegram
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-btn">
+                            📷 Instagram
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-btn">
+                            🐦 Twitter
+                        </a>
+                        <a href="https://github.com" target="_blank" class="social-btn">
+                            💻 GitHub
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-btn">
+                            💼 LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Секция: Галерея работ -->
+        <div id="gallery" class="danayi-section">
+            <div class="danayi-header">
+                <h3>🖼️ Моя галерея</h3>
+            </div>
+            
+            <div class="danayi-cards gallery-grid">
+                <!-- Карточка 1 -->
+                <div class="danayi-card gallery-item">
+                    <div class="danayi-card-side side-1">
+                        <div class="danayi-content">
+                            <img src="images/art1.jpg" alt="Работа 1" class="gallery-image">
+                            <h4>Название работы 1</h4>
+                            <p>Описание работы...</p>
+                        </div>
+                    </div>
+                    <div class="danayi-card-side side-2">
+                        <div class="danayi-content">
+                            <h4>Детали</h4>
+                            <p>Техника: [техника]<br>Год: 2024<br>Размер: [размер]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="danayi-card gallery-item">
+                    <div class="danayi-card-side side-1">
+                        <div class="danayi-content">
+                            <img src="images/art2.jpg" alt="Работа 2" class="gallery-image">
+                            <h4>Название работы 2</h4>
+                            <p>Описание работы...</p>
+                        </div>
+                    </div>
+                    <div class="danayi-card-side side-2">
+                        <div class="danayi-content">
+                            <h4>Детали</h4>
+                            <p>Техника: [техника]<br>Год: 2024<br>Размер: [размер]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="danayi-card gallery-item">
+                    <div class="danayi-card-side side-1">
+                        <div class="danayi-content">
+                            <img src="images/art3.jpg" alt="Работа 3" class="gallery-image">
+                            <h4>Название работы 3</h4>
+                            <p>Описание работы...</p>
+                        </div>
+                    </div>
+                    <div class="danayi-card-side side-2">
+                        <div class="danayi-content">
+                            <h4>Детали</h4>
+                            <p>Техника: [техника]<br>Год: 2024<br>Размер: [размер]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="danayi-card gallery-item">
+                    <div class="danayi-card-side side-1">
+                        <div class="danayi-content">
+                            <img src="images/art4.jpg" alt="Работа 4" class="gallery-image">
+                            <h4>Название работы 4</h4>
+                            <p>Описание работы...</p>
+                        </div>
+                    </div>
+                    <div class="danayi-card-side side-2">
+                        <div class="danayi-content">
+                            <h4>Детали</h4>
+                            <p>Техника: [техника]<br>Год: 2024<br>Размер: [размер]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <div class="danayi-footer">
+            <p>© 2024 [Ваше Имя]. Все права защищены.</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
