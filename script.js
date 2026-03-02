@@ -1,8 +1,10 @@
-// =============================================================================
-// СКРИПТЫ ДЛЯ ИНТЕРАКТИВНОСТИ
-// =============================================================================
+/* =============================================================================
+   СКРИПТЫ ДЛЯ НУАРНОГО ПОРТФОЛИО
+   ============================================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    console.log('■ НУАРНОЕ ПОРТФОЛИО ЗАГРУЖЕНО ■');
     
     // =============================================================================
     // ПЕРЕВОРОТ КАРТОЧЕК ГАЛЕРЕИ
@@ -10,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryItems = document.querySelectorAll('.gallery-item');
     
     galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (e) => {
+            // Игнорируем клик по кнопке удаления
+            if (e.target.classList.contains('danayi-btn-delete')) return;
             item.classList.toggle('flipped');
         });
     });
@@ -45,13 +49,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.danayi-card').forEach(card => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.5s ease-out';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease-out';
         observer.observe(card);
     });
 
     // =============================================================================
-    // КОНСОЛЬ ДЛЯ ОТЛАДКИ
+    // ЭФФЕКТ ПЕЧАТНОЙ МАШИНКИ ДЛЯ ЗАГОЛОВКА
     // =============================================================================
-    console.log('🎨 Портфолио загружено успешно!');
+    const title = document.querySelector('.noir-title');
+    if (title) {
+        const text = title.textContent;
+        title.textContent = '';
+        let i = 0;
+        
+        const typeWriter = () => {
+            if (i < text.length) {
+                title.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        setTimeout(typeWriter, 500);
+    }
 });
