@@ -1,17 +1,29 @@
 /* =============================================================================
-   STYLE: TYPEWRITER DOCUMENT (NO BORDERS, DOTTED SEPARATORS)
-   PALETTE: #FEFEFE, #7A7A7A, #000000, #A90414
+   STYLE: TYPEWRITER DOCUMENT (AUTO THEME SWITCHING)
    ============================================================================= */
 
 :root {
+    /* DEFAULT THEME: DARK */
     --color-bg: #000000;
     --color-text: #FEFEFE;
     --color-secondary: #7A7A7A;
     --color-accent: #A90414;
+    --color-border: #FEFEFE;
+    
     --font-main: 'Courier Prime', monospace;
     --font-typo: 'Special Elite', monospace;
     --size-text: 12px;
-    --size-spacing: 10px;
+}
+
+/* LIGHT THEME OVERRIDE */
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-bg: #FEFEFE;
+        --color-text: #000000;
+        --color-secondary: #7A7A7A;
+        --color-accent: #A90414;
+        --color-border: #000000;
+    }
 }
 
 * {
@@ -27,6 +39,7 @@ body {
     font-size: var(--size-text);
     line-height: 1.6;
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* SCROLLBAR */
@@ -102,7 +115,7 @@ body {
 }
 
 .nav-link:hover {
-  /*  color: var(--color-accent); */
+    color: var(--color-accent);
     text-decoration: underline;
 }
 
@@ -131,6 +144,70 @@ body {
     color: var(--color-secondary);
     font-style: italic;
     font-size: 11px;
+}
+
+/* TIMELINE */
+.timeline-container {
+    position: relative;
+    padding-left: 30px;
+    margin: 20px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--color-secondary);
+    opacity: 0.5;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -26px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-text);
+    border-radius: 50%;
+    border: 2px solid var(--color-bg);
+    transition: background-color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+    background-color: var(--color-accent);
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.timeline-date {
+    font-size: 10px;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+}
+
+.timeline-event {
+    font-size: 11px;
+    color: var(--color-text);
+    text-transform: uppercase;
+}
+
+.timeline-note {
+    font-size: 10px;
+    color: var(--color-secondary);
+    font-style: italic;
 }
 
 /* STATS */
@@ -214,10 +291,10 @@ body {
     width: 100px;
     text-align: right;
 }
-/*
+
 .quest-item:hover .quest-status {
     color: var(--color-accent);
-} */
+}
 
 /* WORKS */
 .work-entry {
@@ -238,8 +315,8 @@ body {
 }
 
 .link-text:hover {
- /*   color: var(--color-accent); */
-    border-bottom: 1px dotted /* var(--color-accent); */
+    color: var(--color-accent);
+    border-bottom: 1px dotted var(--color-accent);
 }
 
 .label {
@@ -301,5 +378,14 @@ body {
     .label {
         width: 100%;
         margin-bottom: 2px;
+    }
+    .timeline-container {
+        padding-left: 20px;
+    }
+    .timeline-line {
+        left: 2px;
+    }
+    .timeline-marker {
+        left: -21px;
     }
 }
