@@ -214,10 +214,10 @@ body {
     width: 100px;
     text-align: right;
 }
-
+/*
 .quest-item:hover .quest-status {
     color: var(--color-accent);
-}
+} */
 
 /* WORKS */
 .work-entry {
@@ -238,8 +238,8 @@ body {
 }
 
 .link-text:hover {
-    color: var(--color-accent);
-    border-bottom: 1px dotted var(--color-accent);
+ /*   color: var(--color-accent); */
+    border-bottom: 1px dotted /* var(--color-accent); */
 }
 
 .label {
