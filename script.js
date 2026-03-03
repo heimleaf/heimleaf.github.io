@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll(
-        '.text-block, .section-title, .quest-item, .work-entry'
+        '.text-block, .section-title, .quest-item, .work-entry, .timeline-item'
     );
     
     animatedElements.forEach(el => {
