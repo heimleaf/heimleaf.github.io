@@ -1,6 +1,18 @@
 /* =============================================================================
-   НУАРНЫЙ БРУТАЛИЗМ - СТИЛИ НА ОСНОВЕ DANAYI PLUGIN
+   STYLE: TYPEWRITER DOCUMENT (NO BORDERS, DOTTED SEPARATORS)
+   PALETTE: #FEFEFE, #7A7A7A, #000000, #A90414
    ============================================================================= */
+
+:root {
+    --color-bg: #000000;
+    --color-text: #FEFEFE;
+    --color-secondary: #7A7A7A;
+    --color-accent: #A90414;
+    --font-main: 'Courier Prime', monospace;
+    --font-typo: 'Special Elite', monospace;
+    --size-text: 12px;
+    --size-spacing: 10px;
+}
 
 * {
     margin: 0;
@@ -8,597 +20,286 @@
     box-sizing: border-box;
 }
 
-/* =============================================================================
-   БАЗОВЫЕ НАСТРОЙКИ
-   ============================================================================= */
-
 body {
-    font-family: 'Special Elite', 'Courier Prime', 'Courier New', monospace;
-    background-color: #000000;
-    color: #c9c9c9;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    font-size: var(--size-text);
     line-height: 1.6;
     padding: 20px;
-    min-height: 100vh;
-    background-image: 
-        radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
-    background-attachment: fixed;
 }
 
-/* =============================================================================
-   ОСНОВНОЙ КОНТЕЙНЕР
-   ============================================================================= */
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+}
 
-.danayi-wrapper {
-    max-width: 1400px;
+/* DOCUMENT PAGE */
+.document-page {
+    max-width: 600px;
     margin: 0 auto;
-    padding: 40px;
-    border: 3px solid #333333;
-    border-radius: 0px; /* Угловатые края */
-    background-color: #0a0a0a;
-    position: relative;
-    box-shadow: 
-        0 0 0 1px #1a1a1a,
-        0 0 50px rgba(0, 0, 0, 0.8),
-        inset 0 0 100px rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
 }
 
-/* Текстура для контейнера (опционально) */
-.danayi-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('images/texture-noise.png'); /* Добавьте текстуру шума */
-    background-repeat: repeat;
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 0;
+/* HEADER */
+.doc-header {
+    margin-bottom: 30px;
+    text-align: left;
 }
 
-.danayi-wrapper > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* =============================================================================
-   ШАПКА
-   ============================================================================= */
-
-.danayi-header {
+.meta-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #333333;
-}
-
-.noir-title {
-    margin: 0;
-    font-size: 2.5em;
-    color: #ffffff;
-    letter-spacing: 0.15em;
+    font-size: 10px;
+    color: var(--color-secondary);
     text-transform: uppercase;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
 }
 
-.danayi-controls {
+.main-title {
+    font-family: var(--font-typo);
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+/* SEPARATORS */
+.separator {
+    border-bottom: 1px dotted var(--color-secondary);
+    margin: 20px 0;
+    opacity: 0.5;
+}
+
+.separator-mini {
+    border-bottom: 1px dotted var(--color-secondary);
+    margin: 10px 0;
+    opacity: 0.3;
+    width: 50%;
+}
+
+/* NAVIGATION */
+.doc-nav {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
-    flex-wrap: wrap;
-}
-
-.danayi-btn {
-    padding: 12px 24px;
-    cursor: pointer;
-    text-decoration: none;
-    background-color: #1a1a1a;
-    color: #c9c9c9;
-    border: 2px solid #333333;
-    border-radius: 0px; /* Угловатые края */
-    transition: all 0.3s ease;
-    font-size: 0.85em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-family: inherit;
-    position: relative;
-    overflow: hidden;
-}
-
-.danayi-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.danayi-btn:hover::before {
-    left: 100%;
-}
-
-.danayi-btn:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-/* =============================================================================
-   ДЕКОРАТИВНЫЕ ЛИНИИ
-   ============================================================================= */
-
-.noir-divider {
-    height: 2px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        #333333 20%, 
-        #333333 80%, 
-        transparent 100%);
-    margin: 40px 0;
-    position: relative;
-}
-
-.noir-divider::after {
-    content: '■';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #0a0a0a;
-    padding: 0 15px;
-    color: #333333;
-    font-size: 0.8em;
-}
-
-/* =============================================================================
-   СЕКЦИИ
-   ============================================================================= */
-
-.danayi-section {
-    margin-bottom: 50px;
-}
-
-.section-title {
-    color: #ffffff;
     margin-bottom: 20px;
-    font-size: 1.4em;
-    letter-spacing: 0.1em;
+    font-size: 11px;
     text-transform: uppercase;
-    border-left: 4px solid #ffffff;
-    padding-left: 15px;
 }
 
-/* =============================================================================
-   КАРТОЧКИ
-   ============================================================================= */
-
-.danayi-card {
-    padding: 30px;
-    border: 2px solid #333333;
-    border-radius: 0px; /* Угловатые края */
-    background-color: #111111;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    position: relative;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-/* Текстура карточки */
-.card-texture {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('images/card-texture.jpg'); /* Добавьте текстуру */
-    background-size: cover;
-    background-position: center;
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-    transition: opacity 0.4s ease;
-}
-
-.danayi-card:hover .card-texture {
-    opacity: 0.12;
-}
-
-.danayi-card:hover {
-    border-color: #666666;
-    background-color: #1a1a1a;
-    box-shadow: 
-        0 0 30px rgba(0, 0, 0, 0.6),
-        inset 0 0 50px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
-}
-
-.danayi-card-side {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-}
-
-.danayi-content {
-    font-size: 1em;
-    line-height: 1.8;
-    color: #b9b9b9;
-    position: relative;
-    z-index: 1;
-}
-
-.danayi-content p {
-    margin-bottom: 15px;
-}
-
-/* =============================================================================
-   ШРИФТ ПЕЧАТНОЙ МАШИНКИ
-   ============================================================================= */
-
-.typewriter-text {
-    font-family: 'Special Elite', 'Courier Prime', monospace;
-    letter-spacing: 0.05em;
-    color: #a8a8a8;
-}
-
-.typewriter-text::first-letter {
-    font-size: 1.2em;
-    color: #ffffff;
-}
-
-/* =============================================================================
-   ПЕРЕКЛЮЧЕНИЕ СТОРОН (FLIP)
-   ============================================================================= */
-
-.danayi-card .side-2 {
-    display: none;
-}
-
-.danayi-card.flipped .side-1 {
-    display: none;
-}
-
-.danayi-card.flipped .side-2 {
-    display: block;
-    animation: fadeIn 0.4s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =============================================================================
-   СОЦИАЛЬНЫЕ ССЫЛКИ
-   ============================================================================= */
-
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.social-btn {
-    padding: 14px 28px;
-    background-color: #1a1a1a;
-    color: #c9c9c9;
+.nav-link {
+    color: var(--color-text);
     text-decoration: none;
-    border: 2px solid #333333;
-    border-radius: 0px;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85em;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-family: inherit;
-}
-
-.btn-icon {
-    font-size: 1.2em;
-    color: #666666;
     transition: color 0.3s ease;
 }
 
-.social-btn:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+.nav-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
 }
 
-.social-btn:hover .btn-icon {
-    color: #000000;
+/* SECTIONS */
+.doc-section {
+    margin-bottom: 30px;
 }
 
-/* =============================================================================
-   ГАЛЕРЕЯ
-   ============================================================================= */
+.section-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
 
-.gallery-grid {
+.text-block {
+    padding: 0 5px;
+}
+
+.text-block p {
+    margin-bottom: 5px;
+}
+
+.note {
+    color: var(--color-secondary);
+    font-style: italic;
+    font-size: 11px;
+}
+
+/* STATS */
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 11px;
+}
+
+.stat-label {
+    color: var(--color-secondary);
+}
+
+.stat-value {
+    color: var(--color-text);
+}
+
+.stat-bar {
+    color: var(--color-secondary);
+    letter-spacing: 1px;
+}
+
+.stat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 10px 0;
+    text-align: center;
 }
 
-.gallery-item {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0;
-    overflow: hidden;
-    min-height: 400px;
+.stat-item {
+    border: 1px dotted var(--color-secondary);
+    padding: 5px;
+    font-size: 11px;
 }
 
-.gallery-image-wrapper {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    border-bottom: 2px solid #333333;
-    position: relative;
+.achievements {
+    margin-top: 10px;
 }
 
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(80%) contrast(120%);
-    transition: all 0.5s ease;
+.sub-header {
+    font-size: 11px;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
-.gallery-item:hover .gallery-image {
-    filter: grayscale(0%) contrast(100%);
-    transform: scale(1.05);
+.simple-list {
+    list-style: none;
+    padding-left: 10px;
 }
 
-.gallery-item .danayi-content {
-    padding: 20px;
+.simple-list li {
+    margin-bottom: 5px;
+    font-size: 11px;
 }
 
-.gallery-title {
-    color: #ffffff;
+/* QUESTS */
+.quest-item {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 8px;
-    font-size: 1.1em;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 11px;
+    border-bottom: 1px dotted var(--color-secondary);
+    padding-bottom: 4px;
 }
 
-.gallery-desc {
-    font-size: 0.9em;
-    color: #888888;
+.quest-id {
+    color: var(--color-secondary);
+    width: 60px;
+}
+
+.quest-desc {
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.quest-status {
+    color: var(--color-secondary);
+    width: 100px;
+    text-align: right;
+}
+
+.quest-item:hover .quest-status {
+    color: var(--color-accent);
+}
+
+/* WORKS */
+.work-entry {
     margin-bottom: 10px;
 }
 
-.gallery-meta {
-    font-size: 0.8em;
-    color: #555555;
-    margin-bottom: 0;
-    letter-spacing: 0.05em;
+.work-entry p {
+    font-size: 11px;
+    margin-bottom: 2px;
 }
 
-/* =============================================================================
-   КНОПКА УДАЛЕНИЯ (для галереи можно скрыть)
-   ============================================================================= */
+/* CONTACTS */
+.link-text {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
 
-.danayi-btn-delete {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 12px;
-    font-size: 0.75em;
-    background-color: #2a0a0a;
-    color: #ff6b6b;
-    border: 1px solid #4a1a1a;
-    border-radius: 0px;
-    cursor: pointer;
+.link-text:hover {
+    color: var(--color-accent);
+    border-bottom: 1px dotted var(--color-accent);
+}
+
+.label {
+    color: var(--color-secondary);
+    margin-right: 10px;
+    display: inline-block;
+    width: 120px;
+}
+
+/* FOOTER */
+.doc-footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--color-secondary);
+}
+
+.doc-footer p {
+    margin-bottom: 5px;
+}
+
+.end-marker {
+    color: var(--color-text);
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
     opacity: 0;
-    transition: all 0.3s ease;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-family: inherit;
-    z-index: 10;
 }
 
-.danayi-card:hover .danayi-btn-delete {
-    opacity: 1;
-}
-
-.danayi-btn-delete:hover {
-    background-color: #ff6b6b;
-    color: #000000;
-}
-
-/* =============================================================================
-   ПОДВАЛ
-   ============================================================================= */
-
-.danayi-footer {
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 2px solid #333333;
-    text-align: center;
-    color: #555555;
-    font-size: 0.8em;
-    letter-spacing: 0.1em;
-}
-
-.footer-text {
-    margin-bottom: 10px;
-}
-
-.footer-text:last-child {
-    margin-bottom: 0;
-}
-
-/* =============================================================================
-   АДАПТИВНОСТЬ
-   ============================================================================= */
-
-@media (max-width: 1024px) {
-    .danayi-wrapper {
-        padding: 30px;
-    }
-    
-    .noir-title {
-        font-size: 2em;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .danayi-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .noir-title {
-        font-size: 1.8em;
-        margin-bottom: 15px;
-    }
-    
-    .danayi-controls {
-        width: 100%;
-    }
-    
-    .danayi-btn {
-        flex: 1;
-        text-align: center;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-}
-
+/* RESPONSIVE */
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-    
-    .danayi-wrapper {
-        padding: 20px;
-    }
-    
-    .noir-title {
-        font-size: 1.5em;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .social-links {
+    .meta-row {
         flex-direction: column;
+        gap: 5px;
     }
-    
-    .social-btn {
+    .doc-nav {
+        gap: 10px;
+    }
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .quest-item {
+        flex-direction: column;
+        gap: 2px;
+    }
+    .quest-id, .quest-status {
         width: 100%;
-        justify-content: center;
+        text-align: left;
     }
-    
-    .section-title {
-        font-size: 1.2em;
-    }
-}
-
-/* =============================================================================
-   ПРОКРУТКА
-   ============================================================================= */
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
-    border-left: 1px solid #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #333333;
-    border: 2px solid #0a0a0a;
-    border-radius: 0px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #555555;
-}
-
-/* =============================================================================
-   ЭФФЕКТЫ
-   ============================================================================= */
-
-/* Эффект печатной машинки при загрузке */
-@keyframes typewriter {
-    from {
-        width: 0;
-    }
-    to {
+    .label {
         width: 100%;
+        margin-bottom: 2px;
     }
-}
-
-/* Виньетка по краям экрана */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);
-    pointer-events: none;
-    z-index: 100;
-}
-
-/* Зернистость плёнки */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 99;
-    opacity: 0.4;
-}
-
-/* =============================================================================
-   УТИЛИТЫ
-   ============================================================================= */
-
-.text-center {
-    text-align: center;
-}
-
-.text-uppercase {
-    text-transform: uppercase;
-}
-
-.letter-spacing {
-    letter-spacing: 0.1em;
 }
