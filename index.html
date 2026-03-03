@@ -1,204 +1,181 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heimleaf</title>
+    <title>SUBJECT FILE // HEIMLEAF</title>
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Подключение шрифта печатной машинки -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="danayi-wrapper">
+
+    <div class="document-page">
         
-        <!-- Шапка с именем -->
-        <div class="danayi-header">
-            <h1 class="noir-title">Heimleaf</h1>
-            <div class="danayi-controls">
-                <a href="#about" class="danayi-btn">About</a>
-                <a href="#gallery" class="danayi-btn">Gallery</a>
-                <a href="#contact" class="danayi-btn">Contacts</a>
+        <!-- HEADER -->
+        <header class="doc-header">
+            <div class="meta-row">
+                <span>DATE: 2024.10.25</span>
+                <span>CLASS: RESTRICTED</span>
             </div>
-        </div>
+            <h1 class="main-title typewriter-target">HEIMLEAF ARCHIVES</h1>
+            <div class="separator"></div>
+        </header>
 
-        <!-- Декоративная линия -->
-        <div class="noir-divider"></div>
+        <!-- NAVIGATION -->
+        <nav class="doc-nav">
+            <a href="#profile" class="nav-link">[01] PROFILE</a>
+            <a href="#stats" class="nav-link">[02] STATS</a>
+            <a href="#quests" class="nav-link">[03] QUESTS</a>
+            <a href="#works" class="nav-link">[04] WORKS</a>
+            <a href="#comms" class="nav-link">[05] COMMS</a>
+        </nav>
 
-        <!-- Секция: Обо мне -->
-        <div id="about" class="danayi-section">
-            <div class="danayi-card">
-                <div class="card-texture"></div>
-                <div class="danayi-content">
-                    <h2 class="section-title">■ ОБО МНЕ</h2>
-                    <p class="typewriter-text">
-                        Hello wayfarer! Welcome to the Nowhere. I am Alister, but some people call me Alexander. You are probably tired after the long journey. 
-                    </p>
-                    <p class="typewriter-text">
-                        > Location: [the Nowhere]<br>
-                        > Years: [2019 — ...]<br>
-                        > СПЕЦИАЛИЗАЦИЯ: [ВАША СПЕЦИАЛИЗАЦИЯ]
-                    </p>
-                </div>
+        <div class="separator"></div>
+
+        <!-- PROFILE SECTION -->
+        <section id="profile" class="doc-section">
+            <h2 class="section-title">/// SUBJECT PROFILE</h2>
+            <div class="text-block">
+                <p>DESIGNATION: Alister (Alexander)</p>
+                <p>CODENAME: Heimleaf</p>
+                <p>LOCATION: [the Nowhere]</p>
+                <p>STATUS: ACTIVE</p>
+                <p>OPERATIONAL SINCE: 2019</p>
+                <br>
+                <p class="note">
+                    NOTE: Greetings. You have reached the endpoint. 
+                    Rest is advised before proceeding further.
+                </p>
             </div>
-        </div>
+        </section>
 
-        <!-- Декоративная линия -->
-        <div class="noir-divider"></div>
+        <div class="separator"></div>
 
-        <!-- Секция: Социальные сети -->
-        <div id="contact" class="danayi-section">
-            <div class="danayi-card">
-                <div class="card-texture"></div>
-                <div class="danayi-content">
-                    <h2 class="section-title">■ СВЯЗЬ</h2>
-                    <div class="social-links">
-                        <a href="https://t.me/heimleaf" target="_blank" class="social-btn">
-                            <span class="btn-icon">◈</span> TELEGRAM [ru]
-                        </a>
-                           <a href="https://t.me/at_heimleaf" target="_blank" class="social-btn">
-                            <span class="btn-icon">◈</span> TELEGRAM [eng]
-                        </a>
-                        <a href="https://instagram.com" target="_blank" class="social-btn">
-                            <span class="btn-icon">◈</span> INSTAGRAM
-                        </a>
-                        <a href="https://twitter.com" target="_blank" class="social-btn">
-                            <span class="btn-icon">◈</span> TWITTER
-                        </a>
-                        <a href="mailto:your@email.com" class="social-btn">
-                            <span class="btn-icon">◈</span> EMAIL
-                        </a>
+        <!-- STATS SECTION -->
+        <section id="stats" class="doc-section">
+            <h2 class="section-title">/// CHARACTER METRICS</h2>
+            <div class="text-block">
+                <div class="stat-row">
+                    <span class="stat-label">LEVEL</span>
+                    <span class="stat-value">05</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">EXPERIENCE</span>
+                    <span class="stat-bar">[||||||......] 60%</span>
+                </div>
+                <div class="separator-mini"></div>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">STR</span>
+                        <span class="stat-value">08</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">INT</span>
+                        <span class="stat-value">15</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">DEX</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">CHA</span>
+                        <span class="stat-value">10</span>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Декоративная линия -->
-        <div class="noir-divider"></div>
-
-        <!-- Секция: Галерея работ -->
-        <div id="gallery" class="danayi-section">
-            <div class="danayi-header">
-                <h2 class="section-title">■ ГАЛЕРЕЯ РАБОТ</h2>
-            </div>
-            
-            <div class="danayi-cards gallery-grid">
-                <!-- Карточка 1 -->
-                <div class="danayi-card gallery-item">
-                    <div class="card-texture"></div>
-                    <div class="danayi-card-side side-1">
-                        <div class="danayi-content">
-                            <div class="gallery-image-wrapper">
-                                <img src="images/art1.jpg" alt="Работа 1" class="gallery-image">
-                            </div>
-                            <h4 class="gallery-title">РАБОТА #001</h4>
-                            <p class="gallery-desc">[НАЗВАНИЕ РАБОТЫ]</p>
-                            <p class="gallery-meta">> 2024 > [ТЕХНИКА]</p>
-                        </div>
-                    </div>
-                    <div class="danayi-card-side side-2">
-                        <div class="danayi-content">
-                            <h4 class="gallery-title">ДЕТАЛИ</h4>
-                            <p class="typewriter-text">
-                                > ТЕХНИКА: [ТЕХНИКА]<br>
-                                > ГОД: 2024<br>
-                                > РАЗМЕР: [РАЗМЕР]<br>
-                                > СТАТУС: ОРИГИНАЛ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Карточка 2 -->
-                <div class="danayi-card gallery-item">
-                    <div class="card-texture"></div>
-                    <div class="danayi-card-side side-1">
-                        <div class="danayi-content">
-                            <div class="gallery-image-wrapper">
-                                <img src="images/art2.jpg" alt="Работа 2" class="gallery-image">
-                            </div>
-                            <h4 class="gallery-title">РАБОТА #002</h4>
-                            <p class="gallery-desc">[НАЗВАНИЕ РАБОТЫ]</p>
-                            <p class="gallery-meta">> 2024 > [ТЕХНИКА]</p>
-                        </div>
-                    </div>
-                    <div class="danayi-card-side side-2">
-                        <div class="danayi-content">
-                            <h4 class="gallery-title">ДЕТАЛИ</h4>
-                            <p class="typewriter-text">
-                                > ТЕХНИКА: [ТЕХНИКА]<br>
-                                > ГОД: 2024<br>
-                                > РАЗМЕР: [РАЗМЕР]<br>
-                                > СТАТУС: ОРИГИНАЛ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Карточка 3 -->
-                <div class="danayi-card gallery-item">
-                    <div class="card-texture"></div>
-                    <div class="danayi-card-side side-1">
-                        <div class="danayi-content">
-                            <div class="gallery-image-wrapper">
-                                <img src="images/art3.jpg" alt="Работа 3" class="gallery-image">
-                            </div>
-                            <h4 class="gallery-title">РАБОТА #003</h4>
-                            <p class="gallery-desc">[НАЗВАНИЕ РАБОТЫ]</p>
-                            <p class="gallery-meta">> 2024 > [ТЕХНИКА]</p>
-                        </div>
-                    </div>
-                    <div class="danayi-card-side side-2">
-                        <div class="danayi-content">
-                            <h4 class="gallery-title">ДЕТАЛИ</h4>
-                            <p class="typewriter-text">
-                                > ТЕХНИКА: [ТЕХНИКА]<br>
-                                > ГОД: 2024<br>
-                                > РАЗМЕР: [РАЗМЕР]<br>
-                                > СТАТУС: ОРИГИНАЛ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Карточка 4 -->
-                <div class="danayi-card gallery-item">
-                    <div class="card-texture"></div>
-                    <div class="danayi-card-side side-1">
-                        <div class="danayi-content">
-                            <div class="gallery-image-wrapper">
-                                <img src="images/art4.jpg" alt="Работа 4" class="gallery-image">
-                            </div>
-                            <h4 class="gallery-title">РАБОТА #004</h4>
-                            <p class="gallery-desc">[НАЗВАНИЕ РАБОТЫ]</p>
-                            <p class="gallery-meta">> 2024 > [ТЕХНИКА]</p>
-                        </div>
-                    </div>
-                    <div class="danayi-card-side side-2">
-                        <div class="danayi-content">
-                            <h4 class="gallery-title">ДЕТАЛИ</h4>
-                            <p class="typewriter-text">
-                                > ТЕХНИКА: [ТЕХНИКА]<br>
-                                > ГОД: 2024<br>
-                                > РАЗМЕР: [РАЗМЕР]<br>
-                                > СТАТУС: ОРИГИНАЛ
-                            </p>
-                        </div>
-                    </div>
+                <div class="separator-mini"></div>
+                <div class="achievements">
+                    <p class="sub-header">ACHIEVEMENTS UNLOCKED:</p>
+                    <ul class="simple-list">
+                        <li>[x] SURVIVOR (2019)</li>
+                        <li>[x] CREATOR (2020)</li>
+                        <li>[ ] MASTERMIND (LOCKED)</li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Декоративная линия -->
-        <div class="noir-divider"></div>
+        <div class="separator"></div>
 
-        <!-- Подвал -->
-        <div class="danayi-footer">
-            <p class="footer-text">© 2024 [ВАШЕ ИМЯ] | ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
-            <p class="footer-text">■ КОНЕЦ СТРАНИЦЫ ■</p>
-        </div>
+        <!-- QUESTS SECTION -->
+        <section id="quests" class="doc-section">
+            <h2 class="section-title">/// ACTIVE QUESTS</h2>
+            <div class="text-block">
+                <div class="quest-item">
+                    <span class="quest-id">Q-001</span>
+                    <span class="quest-desc">COMPLETE PORTFOLIO UPDATE</span>
+                    <span class="quest-status">[IN PROGRESS]</span>
+                </div>
+                <div class="quest-item">
+                    <span class="quest-id">Q-002</span>
+                    <span class="quest-desc">ESTABLISH NEW CONTACTS</span>
+                    <span class="quest-status">[PENDING]</span>
+                </div>
+                <div class="quest-item">
+                    <span class="quest-id">Q-003</span>
+                    <span class="quest-desc">MASTER NEW TECHNIQUE</span>
+                    <span class="quest-status">[FAILED]</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- WORKS SECTION -->
+        <section id="works" class="doc-section">
+            <h2 class="section-title">/// RECORD OF WORKS</h2>
+            <div class="text-block">
+                <div class="work-entry">
+                    <p>REF: 001 | TITLE: [PROJECT NAME] | YEAR: 2024</p>
+                    <p class="note">TECHNIQUE: [MEDIA] | STATUS: ORIGINAL</p>
+                </div>
+                <div class="separator-mini"></div>
+                <div class="work-entry">
+                    <p>REF: 002 | TITLE: [PROJECT NAME] | YEAR: 2024</p>
+                    <p class="note">TECHNIQUE: [MEDIA] | STATUS: ORIGINAL</p>
+                </div>
+                <div class="separator-mini"></div>
+                <div class="work-entry">
+                    <p>REF: 003 | TITLE: [PROJECT NAME] | YEAR: 2024</p>
+                    <p class="note">TECHNIQUE: [MEDIA] | STATUS: ORIGINAL</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- CONTACTS SECTION -->
+        <section id="comms" class="doc-section">
+            <h2 class="section-title">/// COMMUNICATION CHANNELS</h2>
+            <div class="text-block">
+                <ul class="simple-list">
+                    <li>
+                        <span class="label">TELEGRAM [RU]:</span>
+                        <a href="https://t.me/heimleaf" class="link-text">@heimleaf</a>
+                    </li>
+                    <li>
+                        <span class="label">TELEGRAM [EN]:</span>
+                        <a href="https://t.me/at_heimleaf" class="link-text">@at_heimleaf</a>
+                    </li>
+                    <li>
+                        <span class="label">INSTAGRAM:</span>
+                        <a href="https://instagram.com" class="link-text">@instagram</a>
+                    </li>
+                    <li>
+                        <span class="label">EMAIL:</span>
+                        <a href="mailto:your@email.com" class="link-text">your@email.com</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="doc-footer">
+            <div class="separator"></div>
+            <p>&copy; 2024 HEIMLEAF. ALL RIGHTS RESERVED.</p>
+            <p class="end-marker">■ END OF DOCUMENT ■</p>
+        </footer>
 
     </div>
 
