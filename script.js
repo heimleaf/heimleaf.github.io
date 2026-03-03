@@ -1,31 +1,40 @@
 /* =============================================================================
-   СКРИПТЫ ДЛЯ НУАРНОГО ПОРТФОЛИО
+   SCRIPT: TYPEWRITER DOCUMENT LOGIC
    ============================================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    console.log('■ НУАРНОЕ ПОРТФОЛИО ЗАГРУЖЕНО ■');
-    
-    // =============================================================================
-    // ПЕРЕВОРОТ КАРТОЧЕК ГАЛЕРЕИ
-    // =============================================================================
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            // Игнорируем клик по кнопке удаления
-            if (e.target.classList.contains('danayi-btn-delete')) return;
-            item.classList.toggle('flipped');
-        });
-    });
+    console.log('■ SYSTEM READY ■');
 
-    // =============================================================================
-    // ПЛАВНАЯ ПРОКРУТКА ПО ЯКОРЯМ
-    // =============================================================================
+    /* ---------------------------------------------------------------------
+       TYPEWRITER EFFECT FOR TITLE
+       --------------------------------------------------------------------- */
+    const titleElement = document.querySelector('.typewriter-target');
+    if (titleElement) {
+        const originalText = titleElement.textContent;
+        titleElement.textContent = '';
+        let charIndex = 0;
+
+        const typeWriter = () => {
+            if (charIndex < originalText.length) {
+                titleElement.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+
+        setTimeout(typeWriter, 500);
+    }
+
+    /* ---------------------------------------------------------------------
+       SMOOTH SCROLL FOR ANCHORS
+       --------------------------------------------------------------------- */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
@@ -35,42 +44,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // =============================================================================
-    // АНИМАЦИЯ ПРИ ПРОКРУТКЕ
-    // =============================================================================
+    /* ---------------------------------------------------------------------
+       SCROLL REVEAL ANIMATION
+       --------------------------------------------------------------------- */
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -20px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
 
-    document.querySelectorAll('.danayi-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.6s ease-out';
-        observer.observe(card);
+    const animatedElements = document.querySelectorAll(
+        '.text-block, .section-title, .quest-item, .work-entry'
+    );
+    
+    animatedElements.forEach(el => {
+        observer.observe(el);
     });
-
-    // =============================================================================
-    // ЭФФЕКТ ПЕЧАТНОЙ МАШИНКИ ДЛЯ ЗАГОЛОВКА
-    // =============================================================================
-    const title = document.querySelector('.noir-title');
-    if (title) {
-        const text = title.textContent;
-        title.textContent = '';
-        let i = 0;
-        
-        const typeWriter = () => {
-            if (i < text.length) {
-                title.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        setTimeout(typeWriter, 500);
-    }
 });
