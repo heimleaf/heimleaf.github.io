@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateToggleText = () => {
         const isLight = body.classList.contains('light-theme') || 
                        (!body.classList.contains('dark-theme') && systemPrefersLight);
-        themeToggle.textContent = isLight ? 'go to dark' : 'go to light';
+        themeToggle.textContent = isLight ? 'Into Darkness' : 'Into Light';
     };
 
     // Initialize toggle text
